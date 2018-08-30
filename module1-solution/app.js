@@ -11,7 +11,7 @@ function LunchCheckController($scope){
     $scope.colorStyle = ""; // Default color before the first click
 
     $scope.checkDishes = function () {
-    var dishesCount = $scope.dishes.split(',').filter(n => n).length;
+    var dishesCount = $scope.dishes.replace( /\s/g, '').split(',').filter(n => n).length;
 
     $scope.colorStyle = "is-green";
     // Check if we have data
