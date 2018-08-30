@@ -8,11 +8,18 @@ LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope){
     $scope.dishes="";
     $scope.message="";
+    $scope.colorStyle = ""; // Default color before the first click
+
     $scope.checkDishes = function () {
     var dishesCount = $scope.dishes.split(',').filter(n => n).length;
 
+    $scope.colorStyle = "is-green";
     // Check if we have data
-    if($scope.dishes=="") $scope.message="Please enter data first";
+    if($scope.dishes=="")
+    {
+       $scope.message="Please enter data first";
+       $scope.colorStyle = "is-red";
+     }
     // Check number of dishes
     else if(dishesCount <4)  $scope.message="Enjoy!";
     else  $scope.message="Too much!";

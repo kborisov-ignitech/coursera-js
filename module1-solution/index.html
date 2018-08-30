@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .form-control.is-red{border-color: red;}
+      .form-control.is-green{border-color: green;}
+      .message.is-red{border-color: red;color: red;}
+      .message.is-green{border-color: green;color: green;}
     </style>
   </head>
     <script src="angular.min.js"></script>
@@ -18,12 +22,13 @@
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="dishes"> <br>Empty items are not considered (bonus)
+             class="form-control" ng-class="colorStyle" ng-model="dishes">
+              <br>Empty items are not considered (bonus)
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="checkDishes()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message"  ng-class="colorStyle">
            <!-- Your message can go here. -->
            {{message}}
          </div>
