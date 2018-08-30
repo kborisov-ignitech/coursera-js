@@ -1,23 +1,21 @@
 (function() {
 'use strict';
 var x = "hello";
-angular.module('myFirstApp', [])
+angular.module('LunchCheck', [])
+.controller('LunchCheckController', LunchCheckController);
 
-.controller('MyFirstController', function($scope){
-    $scope.name="Y";
-    $scope.reverse_name="Y";
-    $scope.sayHello = function(){
-      return "Hello, Coursera!";
-    };
-    $scope.UpdateName = function()
-    {
-      var r="";
-      for(var i=0;i<$scope.name.length;i++)
-      {
-        r+=$scope.name[$scope.name.length-i-1];
-      }
+LunchCheckController.$inject = ['$scope'];
+function LunchCheckController($scope){
+    $scope.dishes="";
+    $scope.message="";
+    $scope.checkDishes = function () {
+    var dishesCount = $scope.dishes.split(',').filter(n => n).length;
 
-      $scope.reverse_name=r;
-    }
-  });
+    // Check if we have data
+    if($scope.dishes=="") $scope.message="Please enter data first";
+    // Check number of dishes
+    else if(dishesCount <4)  $scope.message="Enjoy!";
+    else  $scope.message="Too much!";
+  };
+  }
 })();
