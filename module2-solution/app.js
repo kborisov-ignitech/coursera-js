@@ -55,6 +55,8 @@ function AlreadyBoughtController(ShoppingListCheckOffService){
     service.addItemToBuy('pills', 5);
     service.addItemToBuy('apples', 10);
     service.addItemToBuy('bottle of water', 10);
+    service.addItemToBuy('candies', 567);
+    service.addItemToBuy('carrot', 1);
 
   }
 })();
