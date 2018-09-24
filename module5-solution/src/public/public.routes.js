@@ -56,7 +56,15 @@ function routeConfig ($stateProvider) {
       url: '/myinfo',
       templateUrl: 'src/public/myinfo/myinfo.html',
       controller: 'MyInfoController',
-      controllerAs: 'myinfoCtrl'
+      controllerAs: 'myinfoCtrl',
+      resolve: {
+        apiPath: ['ApiPath', function (ApiPath) {
+          return ApiPath;
+        }],
+        user: ['UserService', function (UserService) {
+          return UserService.getUserInfo();
+        }]
+      }
     });
 }
 })();

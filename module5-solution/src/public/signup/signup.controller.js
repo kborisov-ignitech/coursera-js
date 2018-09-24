@@ -4,14 +4,14 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = ['MenuService', 'UserService', 'menuItems'];
-function SignUpController(MenuService, UserService, menuItems) {
+SignUpController.$inject = ['UserService', 'menuItems'];
+function SignUpController(UserService, menuItems) {
   var signupCtrl = this;
   signupCtrl.menuItems = menuItems;
 
   signupCtrl.submit = function () {
-    signupCtrl.invalid_favorite = false;
-    signupCtrl.completed = false;
+    //signupCtrl.invalid_favorite = false;
+    //signupCtrl.completed = false;
     signupCtrl.user.favorite = signupCtrl.user.favorite.toUpperCase(); // No lowercase dishes
 
     signupCtrl.user.favoriteDishData = signupCtrl.validatedMenuItem;

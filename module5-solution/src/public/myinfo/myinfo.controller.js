@@ -4,11 +4,11 @@
 angular.module('public')
 .controller('MyInfoController', MyInfoController);
 
-MyInfoController.$inject = ['UserService', 'ApiPath'];
-function MyInfoController(UserService, ApiPath) {
+MyInfoController.$inject = ['apiPath', 'user'];
+function MyInfoController(apiPath, user) {
   var myinfoCtrl = this;
-  myinfoCtrl.basePath = ApiPath;
-  myinfoCtrl.user=UserService.getUserInfo();
+  myinfoCtrl.basePath = apiPath;
+  myinfoCtrl.user = user;
 };
 
 })();
