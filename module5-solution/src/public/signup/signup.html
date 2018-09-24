@@ -1,5 +1,5 @@
 <div class="container">
-  <fieldset>
+  <fieldset ng-if="!signupCtrl.completed">
   <h2>Sign Up</h2>
   <form name='signupForm' novalidate >
 
@@ -47,6 +47,7 @@
 
       <input type="text" name="favorite" placeholder="Favorite dish"
         ng-model="signupCtrl.user.favorite"
+        ui-validate="{blackList : 'signupCtrl.validateDish($value)'}"
         required>
         <span ng-if="signupForm.favorite.$invalid && signupForm.favorite.$touched">
           Favorite dish is required.
