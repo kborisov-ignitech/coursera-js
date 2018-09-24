@@ -1,0 +1,27 @@
+<div class="container">
+  <fieldset>
+  <h2>My Info</h2>
+<div id="info"  ng-if="myinfoCtrl.user">
+  First Name: {{ myinfoCtrl.user.firstName}} <br>
+  Last Name: {{ myinfoCtrl.user.lastName}} <br>
+  Email: {{ myinfoCtrl.user.email}} <br>
+  Phone: {{ myinfoCtrl.user.phone }}  <br>
+  Favorite dish:
+  <div>
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{myinfoCtrl.user.favoriteDishData.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{myinfoCtrl.basePath}}/images/{{myinfoCtrl.user.favoriteDishData.short_name}}.jpg" alt="{myinfoCtrl.user.favoriteDishData.name}}">
+      </div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{myinfoCtrl.user.favoriteDishData.name}}</h3>
+      <p class="menu-item-details">{{myinfoCtrl.user.favoriteDishData.description}}</p>
+    </div>
+  </div>
+</div>
+<div id="notFilled"  ng-if="!myinfoCtrl.user">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up</a> Now!
+</div>
+
+</div>
