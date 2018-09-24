@@ -9,9 +9,6 @@ function MyInfoController(UserService, ApiPath) {
   var myinfoCtrl = this;
   myinfoCtrl.basePath = ApiPath;
   myinfoCtrl.user=UserService.getUserInfo();
-  if(myinfoCtrl.user != undefined){
-    console.log(myinfoCtrl.user);
-  }
 };
 
 })();
